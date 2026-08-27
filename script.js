@@ -30,8 +30,7 @@ const perguntas = [
     alternativas: ["a)verdadeiro", "b)falso"],
   },
   {
-    enunciado: "O incentivo a atividades comunitárias que integram diferentes faixas etárias ajuda a reduzir a solidão e a construir uma sociedade menos egoísta?
-,
+    enunciado: "O incentivo a atividades comunitárias que integram diferentes faixas etárias ajuda a reduzir a solidão e a construir uma sociedade menos egoísta?",
     alternativas: ["a)verdadeiro", "b)falso"],
   },
 
