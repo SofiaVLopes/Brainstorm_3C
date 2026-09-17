@@ -38,7 +38,7 @@ const perguntas = [
 
 let atual = 0;
 let perguntaAtual;
-let historiaFinal = "";
+let historiaFinal = &quot;&quot;;
 
 function mostraPergunta() {
 if (atual &gt;= perguntas.length) {
@@ -48,6 +48,7 @@ return;
 perguntaAtual = perguntas[atual];
 caixaPerguntas.textContent = perguntaAtual.enunciado;
 caixaAlternativas.textContent = &quot;&quot;;
+
 mostraAlternativas();
 }
 
@@ -68,7 +69,6 @@ mostraPergunta();
 }
 
 function mostraResultado() {
-
 caixaPerguntas.textContent = &quot;Em 2049...&quot;;
 textoResultado.textContent = historiaFinal;
 caixaAlternativas.textContent = &quot;&quot;;
