@@ -41,16 +41,37 @@ let perguntaAtual;
 let historiaFinal = "";
 
 function mostraPergunta() {
-  perguntaAtual = perguntas[atual];
-  caixaPerguntas.textContent = perguntaAtual.enunciado;
-  mostraAlternativas();
+if (atual &gt;= perguntas.length) {
+mostraResultado();
+return;
 }
-function mostraAlternativas() {
-  for (const alternativa of perguntaAtual.alternativas) {
-    const botaoAlternativas = document.createElement("button");
-    botaoAlternativas.textContent = alternativa;
-    caixaAlternativas.appendChild(botaoAlternativas);
-  }
+perguntaAtual = perguntas[atual];
+caixaPerguntas.textContent = perguntaAtual.enunciado;
+caixaAlternativas.textContent = &quot;&quot;;
+mostraAlternativas();
+}
+
+function mostraAlternativas(){
+for(const alternativa of perguntaAtual.alternativas) {
+const botaoAlternativas = document.createElement(&quot;button&quot;);
+botaoAlternativas.textContent = alternativa.texto;
+botaoAlternativas.addEventListener(&quot;click&quot;, () =&gt; respostaSelecionada(alternativa));
+caixaAlternativas.appendChild(botaoAlternativas);
+}
+}
+
+function respostaSelecionada(opcaoSelecionada) {
+const afirmacoes = opcaoSelecionada.afirmacao;
+historiaFinal += afirmacoes + &quot; &quot;;
+atual++;
+mostraPergunta();
+}
+
+function mostraResultado() {
+
+caixaPerguntas.textContent = &quot;Em 2049...&quot;;
+textoResultado.textContent = historiaFinal;
+caixaAlternativas.textContent = &quot;&quot;;
 }
 
 mostraPergunta();
